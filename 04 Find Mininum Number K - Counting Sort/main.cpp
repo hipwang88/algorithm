@@ -51,13 +51,28 @@ void CountingSort(int *pArray,const int nSize,const int nArea)
 		pArray[i] = pArray_Copy[i];
 }
 
+int *FindMininumKItems(int *pArray,const int K)
+{
+	int *pKItems = new int[K];
+	memset(pKItems,0,sizeof(int)*K);
+	
+	for (int i = 0; i < K; ++i)
+		pKItems[i] = pArray[i];
+		
+	return pKItems;
+}
+
 int main(int argc, char** argv) 
 {
 	int *pArray = createArray(100,120);
+	int *pKItems = new int[10];
 	
 	DisplayArray(pArray,100);
 	CountingSort(pArray,100,120);
 	DisplayArray(pArray,100);
+	
+	pKItems = FindMininumKItems(pArray,10);
+	DisplayArray(pKItems,10);
 	
 	return 0;
 }
